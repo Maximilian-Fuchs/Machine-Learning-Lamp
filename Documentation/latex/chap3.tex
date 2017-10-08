@@ -1,0 +1,18 @@
+Our code is completely written in Python. Python allows us to quickly test and generate functioning examples. Also many machine learning libraries provide excellent Python APIs, such as the libraries we used in the implementation.
+
+Our Code is structured in two main logic parts, consisting of several smaller, partly shared, modules and classes.
+
+
+\subsection{Training Phase}
+
+The class \emph{DataColletor} can be queried for the most recent sensor data. \emph{DataColletor} internally listens for MQTT events and caches the latest value. At query time, all MQTT values are augmented with computed properties like time of day, status of the lamp, or daylight.
+
+\emph{DataWriter.py} is responsible to store the training data at a pre-defined interval, by querying \emph{DataColletor}. The query-result is simply appended in a text file.
+
+After the collection phase, the decision tree is computed. It gives us insight in when to turn the lamp on or off. This tree is computed in \emph{ModelTrainer.py}.
+
+\subsection{Evaluation Phase}
+
+When the model is sucessfully created, it is evaluated. This is also done, just like the data collection, in a pre-defined interval. \emph{Evaluator.py} gets the current sensor values, by quering \emph{DataColletor} and with them as input, in turn queries the prior computed decision tree model. The decision tree query now results in wether the lamp should be turned on or off. The class \emph{LampControl} provides an interface for doing just that.
+
+\emph{LampControl} sends API requests via HTTP to the \emph{Philips Hue Bridge}.

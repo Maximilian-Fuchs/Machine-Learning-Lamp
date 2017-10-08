@@ -1,0 +1,13 @@
+% Instructions
+
+Get a MQTT Broker running in your network (e.g. on the Raspberry Pi). Adjust the IP Adress (192.168.1.226) in RaspberryPi/DataCollector.py and Linksys\_Router/publish\_wifi\_clients.py to match the ip of the client that is running your MQTT broker.
+
+Get yourself a Linksys WRT1900AC Router with openWRT operating system. The router needs to be in a network with the MQTT Broker and should be configured as an Access Point on your WLAN Devices. Edit the devices Dictionary in Linksys\_Router/publish\_wifi\_clients.py to match your personal Wifi devices and respective MAC-Addresses. Install Python, pip and the paho library on the router. Run the Linksys\_Router/publish\_wifi\_clients.py script on the Router.
+
+Set up a phillips HUE in your network. Adjust RaspberryPI/LampControl.py to match your Hue's ip address.
+
+Copy the RaspberryPI folder to your Raspberry Pi and run the DataCollector Script. This will store information about your lamps current status, daytime, connected devices, etc. in 'decision\_tree\_data' and 'raw' files. Let the data collection run for a few weeks.
+
+After collecting data, run the RaspberryPi/ModelTrainer.py on your Raspberry. It will build a decision tree model based on the collected data stored in decision\_tree\_data.
+
+Once the model is trained you can run RaspberryPI/Evaluator.py on your Raspberry. This script will switch the Hue on and off according to the decision tree model.

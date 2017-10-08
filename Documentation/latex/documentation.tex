@@ -1,0 +1,117 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage[numbers]{natbib}
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements
+
+\usepackage{geometry}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{titling}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+ % Title
+
+
+\begin{document}
+
+\author{
+  Fuchs, Max\\
+  \texttt{2908207}
+  \and
+  Gärtner, Christoph (Group AD)\\
+  \texttt{2766889}
+  \and
+  Hofmann, Tobias\\
+  \texttt{2350059}
+  \and
+  Kalabić, Edin\\
+  \texttt{2401115}
+  \and
+  Linke, Alexander\\
+  \texttt{2274630}
+}
+
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics[width=9cm]{img/logo_schriftzug.png}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
+
+\title{TK3: Ubiquitous / Mobile Computing}
+
+
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+% Include instructions or scripts to execute the project
+% uploaded a short demonstration video (make it fancy)
+% Provide a short, but precise, documentation
+
+
+\section{Introduction}
+
+\input{chap1.tex}
+
+\section{Instructions for Code Execution}
+
+\input{chap2.tex} \label{section:2}
+
+\section{Implementation}
+
+\input{chap3.tex}
+
+\section{Conclusion and Outlook}
+
+\input{chap4.tex}
+
+\chapter*{Resposibilities}
+
+\begin{itemize}
+\item Logo / Video: Alexander Linke, Edin Kalabić
+\item Presentation: Tobias Hofmann, Alexander Linke, Max Fuchs
+\item Documentation: All
+\item Lamp Control: Alexander Linke, Edin Kalabić
+\item Softsensor Daylight: Alex, Max Fuchs, Edin Kalabić
+\item Softsensor Wifi-Devices: Max Fuchs
+\item Evaluator: Christoph Gärtner, Max Fuchs
+\item Decision Tree Model Trainer: Max Fuchs
+\item Data Collection: Christoph Gärtner, Max Fuchs
+\item Class structure: Christoph Gärtner
+\end{itemize}
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliographystyle{apalike}
+
+\bibliography{sample}
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
